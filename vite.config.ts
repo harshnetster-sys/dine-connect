@@ -12,6 +12,11 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Vite's top-level `server.allowedHosts` is required by some deployment checks
+  // and by the bundled config detection used during Render deploys.
+  server: {
+    allowedHosts: ["swift-dine-connect.onrender.com", ".onrender.com"],
+  },
   // Allow Render (and optionally other Render subdomains) to be accepted by the dev/server host check.
   vite: {
     server: {
